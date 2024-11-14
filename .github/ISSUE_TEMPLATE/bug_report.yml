@@ -1,0 +1,41 @@
+name: 🐞 Bug Report
+description: Report a bug or issue with InfinityFit
+title: "[BUG] Brief description of the bug"
+labels: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Bug Description**  
+        A clear and concise description of the issue.
+
+  - type: textarea
+    attributes:
+      label: Steps to Reproduce
+      description: List the steps to reproduce the bug
+      value: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+
+  - type: textarea
+    attributes:
+      label: Expected Behavior
+      description: Describe what you expected to happen
+
+  - type: textarea
+    attributes:
+      label: Actual Behavior
+      description: Describe what actually happened
+
+  - type: textarea
+    attributes:
+      label: Environment
+      description: OS, browser, and InfinityFit version
+      placeholder: e.g., Windows 10, Chrome 96, InfinityFit v1.0.0
+
+  - type: textarea
+    attributes:
+      label: Additional Context
+      description: Add any other relevant details or screenshots
