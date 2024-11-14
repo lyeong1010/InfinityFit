@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"HTTP://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cal">
+
+
+	<!-- 음식 수 조회, 검색 기능 포함 -->
+	<select id="totalCntWithSearch" resultType="Integer" parameterType="String">
+		select  count(*) from caldictionary where mid is null and cdtype = '음식' and cdname like '%${value}%' 
+	</select>
+
+	<!-- 음식 검색 및 리스트 출력-->  <!-- 상품 번호가 아닌 ROWNUM()순서로 정렬하여 출력한다 -->
+	<select id="searchList" resultType="calDTO" parameterType="calDTO">
+	select * from(
+                select row_number() over (order by cdno) num,
+			A.* from caldictionary A 
+				where cdtype = '음식' and cdname like '%${searchWord}%' 
+				order by cdno)
+				
+			where num between #{startNo} and #{endNo}
+	</select>
+
+
+
+	<!-- 운동 수 조회, 검색 기능 포함 -->
+	<select id="totalCntWithSearch2" resultType="Integer" parameterType="String">
+		select  count(*) from caldictionary where mid is null and cdtype = '운동' and cdname like '%${value}%' 
+	</select>
+	
+	<!-- 운동 검색 및 리스트 출력--> <!-- 상품 번호가 아닌 ROWNUM()순서로 정렬하여 출력한다 -->
+	<select id="searchList2" resultType="calDTO" parameterType="calDTO">
+	select * from(
+                select row_number() over (order by cdno) num,
+			A.* from caldictionary A 
+				where cdtype = '운동' and cdname like '%${searchWord}%' 
+				order by cdno)
+				
+			where num between #{startNo} and #{endNo}
+	</select>
+	
+	<!-- 게시물 수 조회, 검색 기능 포함 -->
+	<select id="totalCntWithSearch3" resultType="Integer" parameterType="String">
+		select  count(*) from caldictionary where mid is null and cdname like '%${value}%' 
+	</select>
+	
+	<!-- 검색 및 리스트 출력--> <!-- 상품 번호가 아닌 ROWNUM()순서로 정렬하여 출력한다 -->
+	<select id="searchList3" resultType="calDTO" parameterType="calDTO">
+	select * from(
+                select row_number() over (order by cdno) num,
+			A.* from caldictionary A 
+				where cdname like '%${searchWord}%' 
+				order by cdno)
+				
+			where num between #{startNo} and #{endNo}
+	</select>
+	
+	<!-- 삭제 -->
+	<delete id="delete" parameterType="calDTO">
+		DELETE caldictionary WHERE cdno=#{cdno}
+	</delete>
+	
+	<!-- 음식추가 -->
+	<insert id="insert" parameterType="calDTO">
+		INSERT INTO caldictionary(cdno, cdtype, cdcal, cdname, cdtan, cddan, cdji, cdsik, cdna, cdgram, cdamount)	
+		VALUES(( select   NVL(MAX(cdno),0)+1   from  caldictionary ), #{cdtype}, #{cdcal}, #{cdname}, #{cdtan}, #{cddan}, #{cdji}, #{cdsik}, #{cdna}, #{cdgram}, #{cdamount} )
+	</insert>
+	
+</mapper>

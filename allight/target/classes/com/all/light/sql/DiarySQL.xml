@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"HTTP://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="diary">
+	
+	<!-- 메인화면에서 보일 그 달의 일별 음식칼로리,운동칼로리,체중 정보  -->
+	<select id="main" resultType="diaryDTO" parameterType="java.util.HashMap">
+		select * from 
+			(select EXTRACT(YEAR FROM ddate) year
+        		,EXTRACT(MONTH FROM ddate) month, EXTRACT(DAY FROM ddate) day, 
+        		dno , ddate, dexercal, dfoodcal, dweight, ddiary, dimage, dsucc
+       		 from diary where mid = #{mid}) 
+		where year = #{year} and month = #{month}
+	</select>
+	
+	<!-- 다이어리 번호로 다이어리 정보 가져오기 -->
+	<select id="diaryInfo" resultType="diaryDTO" parameterType="int">
+		select * from diary where dno= #{dno}
+	</select>
+	
+	<!-- 다이어리 번호로 myfood 정보 가져오기  -->
+	<select id="myFood" resultType="myfoodDTO" parameterType="int">
+		select * from myfood
+		where dno = #{dno}
+		order by mfno desc
+	</select>
+	
+	<!-- 음식 칼로리 사전 음식 검색  -->
+	<select id="searchFood" resultType="calDTO" parameterType="java.lang.String">
+		select * from caldictionary 
+		where cdtype='음식' and mid is null 
+			and cdname like '%' || #{searchWord} || '%'
+	</select>
+	
+	<!-- 마이 칼로리 (사전) 음식 전체 내용 가져오기 (검색없을시)  -->
+	<select id="AllMyFood" resultType="calDTO" parameterType="java.lang.String">
+		select * from caldictionary 
+		where cdtype='음식' and mid = #{mid}
+		order by cdno desc
+	</select>
+	
+	<!-- 내 음식 칼로리 추가  -->
+	<insert id="insertMyFood" parameterType="java.util.HashMap">
+		insert into myfood 
+		values (MFNO_SEQ.nextval,
+				 #{cdamount},
+			     #{mftotalcal},
+			     #{cdtype},
+			     #{dno},
+			     #{cdno},
+			     #{cdgram},
+			     #{cdname})
+	</insert>
+	
+	<!-- 사전번호로 정보 가져오기  -->
+	<select id="getCdnameByCdno" resultType="calDTO" parameterType="int">
+		select * from caldictionary where cdno = #{cdno}
+	</select>
+	
+	<!-- 내 음식 칼로리 삭제  -->
+	<delete id="myFoodDelete" parameterType="int">
+		delete myfood where mfno = #{mfno}
+	</delete>
+	
+	<!-- 다이어리 음식총칼로리 수정  -->
+	<update id="updateDiaryFoodcal" parameterType="java.util.HashMap">
+		update diary 
+		set dfoodcal = #{dfoodcal} 
+		where dno = #{dno}
+	</update>
+	
+	<!-- 내 음식 번호로 칼로리 가져오기  -->
+	<select id="getMfTototal" resultType="int" parameterType="int">
+		select mftotalcal from myfood where mfno = #{mfno}
+	</select>
+	
+	<!-- 마이칼로리(음식) 추가(상세보기에서~~) -->
+	<insert id="insertMyCal" parameterType="java.util.HashMap">
+		insert into caldictionary
+		values (CDNO_SEQ.nextval,'음식',#{cdcal},#{cdname},#{mid},#{mno},
+				#{cdtan},#{cddan},#{cdji},#{cdsik},#{cdna},#{cdgram},#{cdamount})
+	</insert>
+	
+	<!-- 마이칼로리(음식) 삭제 -->
+	<delete id="deleteMyCal" parameterType="int">
+		delete caldictionary where cdno = #{cdno}
+	</delete>
+	
+	<!-- 다이어리 작성  (아이디로만) -->
+	<insert id="insertDiaryIDOnly" parameterType="java.util.HashMap">
+		insert into diary (dno,mid,ddate)
+		values (DNO_SEQ.nextval,#{mid},#{ddate})
+	</insert>  
+
+	<!-- 다이어리 데이터 제일 최신거 하나만 가져오기 -->
+	<select id="selectNewDiary" resultType="diaryDTO">
+		select * from diary where rownum=1 order by dno desc
+	</select>
+
+	<!-- 몸무게 업데이트  -->
+	<update id="updateDweight" parameterType="java.util.HashMap">
+		update diary set dweight = #{dweight} where dno = #{dno}
+	</update>
+
+	<!-- 일기 업데이트  -->
+	<update id="updateDdiary" parameterType="java.util.HashMap">
+		update diary set ddiary = #{ddiary} where dno = #{dno}
+	</update>
+
+	<!-- 사전번호로 마이운동 리스트 가져오기 -->
+	<select id="myExercise" resultType="myExerDTO" parameterType="Integer">
+		select * from myexercise
+		where dno = #{dno}
+		order by meno desc
+	</select>
+
+	<!-- 운동 칼로리 사전 검색  -->
+	<select id="searchExer" resultType="calDTO" parameterType="java.lang.String">
+		select * from caldictionary 
+		where cdtype='운동' and mid is null 
+			and cdname like '%' || #{searchWord} || '%'
+	</select>
+	
+	<!-- 마이 칼로리 (사전) 운동 전체 내용 가져오기 (검색없을시)  -->
+	<select id="AllMyExer" resultType="calDTO" parameterType="java.lang.String">
+		select * from caldictionary 
+		where cdtype='운동' and mid = #{mid}
+		order by cdno desc
+	</select>
+
+	<!-- 마이칼로리(운동) 추가(상세보기에서~~) -->
+	<insert id="insertMyCal2" parameterType="java.util.HashMap">
+		insert into caldictionary (cdno,cdtype,cdcal,cdname,mid,mno,cdgram)
+		values (CDNO_SEQ.nextval,'운동',#{cdcal},#{cdname},#{mid},#{mno},#{cdgram})
+	</insert>
+
+	<!-- 내 운동 칼로리 추가  -->
+	<insert id="insertMyExer" parameterType="java.util.HashMap">
+		insert into myexercise
+		values (MENO_SEQ.nextval,
+				#{metime},
+				#{metotalcal},
+				#{dno},
+				#{cdno},
+				#{mename})
+	</insert>
+
+	<!-- 다이어리 운동 총칼로리 수정  -->
+	<update id="updateDiaryExercal" parameterType="java.util.HashMap">
+		update diary 
+		set dexercal = #{dexercal} 
+		where dno = #{dno}
+	</update>
+	
+	<!-- 내 운동 번호로 칼로리 가져오기  -->
+	<select id="getMeTototal" resultType="int" parameterType="int">
+		select metotalcal from myexercise where meno = #{meno}
+	</select>
+	
+	<!-- 내 운동 칼로리 삭제  -->
+	<delete id="myExerDelete" parameterType="int">
+		delete myexercise where meno = #{meno}
+	</delete>
+	
+	<!-- 내 음식 칼로리 모두 삭제 -->
+	<delete id="myFoodDeleteAll" parameterType="int">
+		delete myfood where dno = #{dno}
+	</delete>
+	
+	<!-- 내 운동 칼로리 모두 삭제  -->
+	<delete id="myExerDeleteAll" parameterType="int">
+		delete myexercise where dno = #{dno}
+	</delete>
+	
+	<!-- 다이어리 삭제 -->
+	<delete id="myDiaryDelete" parameterType="int">
+		delete diary where dno = #{dno}
+	</delete>
+	
+	<!-- 이미지 업로드 -->
+	<update id="updateDimage">
+		update diary set dimage = #{dimage},doriimage = #{doriimage}
+		where dno = #{dno} 
+	</update>
+	
+	<!-- 해당 회원의 다이어리인지 확인 -->
+	<select id="IsMyDno" resultType="int" parameterType="java.util.HashMap">
+		select count(*) from diary where dno=#{dno} and mid=#{mid}
+	</select>
+	
+	<!-- 다이어리 이미지 삭제 -->
+	<update id="myImgDelete" parameterType="int">
+		update diary set dimage = null 
+		where dno = #{dno}
+	</update>
+	
+	<!--차트정보 추출 -->
+	<select id="getchart" resultType="diaryDTO" parameterType="diaryDTO">
+	select mid,to_char(ddate, 'MM') as month, to_char(ddate, 'DD') as day, dweight,dexercal,dfoodcal from (select diary.*,EXTRACT(MONTH FROM ddate) as mm,EXTRACT(YEAR FROM ddate) as yy from diary) 
+	where mid = #{mid} and mm=#{month} and yy=#{year} order by day
+	</select>
+
+	<select id="calrecipe" resultType="creDTO" parameterType="diaryDTO">
+	select * from calrecipe where crno=(select MAX(crno) from calrecipe where mid=#{mid} and TO_CHAR(crdate, 'YYYY-MM-DD') &lt;= #{ddate})
+	</select>
+	
+	<update id="recipeup" parameterType="creDTO">
+	update diary set crno=#{crno},crcal=#{crcal} where dno=#{age}
+	</update>
+	
+	<update id="success" parameterType="diaryDTO">
+	update diary set dsucc=#{dsucc} where dno=#{dno}
+	</update>
+	
+	<select id="getrate" parameterType="diaryDTO" resultType="diaryDTO">
+	select count(*) as dsucc,month from (SELECT EXTRACT(MONTH FROM ddate) as month,EXTRACT(YEAR FROM ddate) as year FROM diary where mid=#{mid} and dsucc=1) where year=#{year} GROUP by month order by month
+	</select>
+	
+</mapper>
+	
