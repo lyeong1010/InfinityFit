@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"HTTP://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="review">
+
+	<select id="getTotalCnt" resultType="Integer" parameterType="PageUtil">
+		select count(*) from item
+        where ino in(select ino 
+        						from review
+       							where rid=#{rid})
+        and iname like '%${searchWord}%'
+	</select>
+	
+	<select id="getTotalCntCorp" resultType="Integer" parameterType="PageUtil">
+		select count(*) from review 
+		where ino in(select ino 
+						            from item 
+						            where icorp=#{coname}
+						            and iname like '%${searchWord}%')
+	</select>
+	
+	<select id="getList" resultType="java.util.HashMap"
+		parameterType="PageUtil">
+            select * from(select R.*,I.iname, row_number() over (order by R.rno) num
+        from review R,item I
+        where R.rid=#{rid}
+        and R.ino=I.ino
+        and I.iname like '%${searchWord}%')
+        where num between ${startNo} and ${endNo}
+        order by num desc
+	</select>
+	
+	<select id="getListCorp" resultType="java.util.HashMap"
+		parameterType="PageUtil">
+         select * from
+							        (select R.*,I.iname, row_number() over (order by R.rno) num
+							        from review R,item I
+							        where R.ino=I.ino
+							        and I.ino in (select ino 
+									                        from item 
+									                        where icorp=#{coname})
+							        and I.iname like '%${searchWord}%')
+        where num between ${startNo} and ${endNo}
+        order by num desc
+	</select>
+	
+	<insert id="reviewWrite" parameterType="reviewDTO">
+		insert into review values(RNO_SEQ.nextval, #{ino}, #{rid},#{rnick},sysdate,#{rgrade},#{rcontent})
+	</insert>
+		
+		<delete id="reviewDelete" parameterType="reviewDTO">
+		delete from review where ino=${ino} and rid=#{rid}
+		</delete>
+		
+		<delete id="reviewDeleteCorp" parameterType="reviewDTO">
+		delete from review where rno=${rno}
+		</delete>
+		
+		<select id="getReviewInfo" parameterType="reviewDTO" resultType="reviewDTO">
+			select * from review where ino=${ino} and rid=#{rid}		
+		</select>
+		
+		<update id="reviewUpdate" parameterType="reviewDTO"> 
+			update review set rdate=sysdate, rgrade=${rgrade}, rcontent=#{rcontent}
+			where ino=${ino} and rid=#{rid}
+		</update>
+</mapper>
+	

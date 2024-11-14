@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+   <!--  myBatis에 관련된 환경설정 -->
+   <settings>
+      <!-- 캐쉬 메모리 사용여부 -->
+      <setting name="cacheEnabled" value="false" />
+      <!-- 일반화 키 사용여부 -->
+      <setting name="useGeneratedKeys" value="true" />
+      <!-- 기본 질의 실행 방식 -->
+      <setting name="defaultExecutorType" value="REUSE" />      
+      <setting name="jdbcTypeForNull" value="NULL"/>
+   </settings>
+   
+   <!-- sql에서 사용하는 별칭 -->
+   <typeAliases>
+	   	<typeAlias type="java.lang.Integer" alias="int"/>
+	   	<typeAlias type="java.lang.String" alias="string"/>
+   		<typeAlias type="com.all.light.util.PageUtil" alias="PageUtil"/>
+   		<typeAlias type="com.all.light.dto.MemberDTO" alias="memDTO"/>
+   		<typeAlias type="com.all.light.dto.QuestionDTO" alias="queDTO"/>
+   		<typeAlias type="com.all.light.dto.ItemQuestionDTO" alias="iqueDTO"/>
+   		<typeAlias type="com.all.light.dto.CorporationDTO" alias="corDTO"/>
+   		<typeAlias type="com.all.light.dto.ShoppingDTO" alias="shopDTO"/>
+   		<typeAlias type="com.all.light.dto.NoticeDTO" alias="notDTO"/>
+   		<typeAlias type="com.all.light.dto.OrderDTO" alias="ordDTO"/>
+   		<typeAlias type="com.all.light.dto.OrderdetailDTO" alias="orddeDTO"/>
+   		<typeAlias type="com.all.light.dto.ReviewDTO" alias="reviewDTO"/>
+   		<typeAlias type="com.all.light.dto.ItemDTO" alias="itemDTO"/>
+   		<typeAlias type="com.all.light.dto.DiaryDTO" alias="diaryDTO"/>
+   		<typeAlias type="com.all.light.dto.AddressDTO" alias="addressDTO"/>
+   		<typeAlias type="com.all.light.dto.CalrecipeDTO" alias="creDTO"/>
+   		<typeAlias type="com.all.light.dto.MyFoodDTO" alias="myfoodDTO"/>
+   		<typeAlias type="com.all.light.dto.CaldictionaryDTO" alias="calDTO"/>
+   		<typeAlias type="com.all.light.dto.MyExerciseDTO" alias="myExerDTO"/>
+   		<typeAlias type="com.all.light.dto.CartDTO" alias="cartDTO"/>
+   		<typeAlias type="com.all.light.dto.BuyDTO" alias="buyDTO"/>
+   		<typeAlias type="com.all.light.dto.FreeBoardDTO" alias="freDTO"/>
+   </typeAliases>
+   
+   <mappers>
+   		<!-- sql 설정 -->
+   		<mapper resource="/com/all/light/sql/MemberSQL.xml"/>
+   		<mapper resource="/com/all/light/sql/CorporationSQL.xml"/>
+   		<mapper resource="/com/all/light/sql/ShoppingSQL.xml"/>
+   		<mapper resource="/com/all/light/sql/QuestionSQL.xml"/>
+   		<mapper resource="/com/all/light/sql/NoticeSQL.xml"/>
+   		<mapper resource="/com/all/light/sql/OrderSQL.xml"/>
+   		<mapper resource="/com/all/light/sql/ReviewSQL.xml"/>
+   		<mapper resource="/com/all/light/sql/ItemSQL.xml"/>
+   		<mapper resource="/com/all/light/sql/DiarySQL.xml"/>
+   		<mapper resource="/com/all/light/sql/CalrecipeSQL.xml"/>
+   		<mapper resource="/com/all/light/sql/CaldictionarySQL.xml"/>
+   		<mapper resource="/com/all/light/sql/CartSQL.xml"/>
+   		<mapper resource="/com/all/light/sql/BuySQL.xml"/>
+   		<mapper resource="/com/all/light/sql/FreeBoardSQL.xml"/>
+   </mappers>
+   
+</configuration>

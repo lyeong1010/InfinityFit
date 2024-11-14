@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<context:annotation-config/>
+	
+	<!-- 컨넥션 풀 설정   -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	   <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+	   <property name="url"             value="jdbc:oracle:thin:@192.168.56.66:1521/orcl"/><!-- 192.168.56.66 -->
+	   <property name="username"        value="allight"/>
+	   <property name="password"        value="allight"/>
+	   <property name="connectionProperties">
+		   	<props>
+	            <prop key="oracle.net.READ_TIMEOUT">600000</prop>
+	        </props>
+	   </property>
+	</bean>  
+	
+	<!-- myBatis 등록 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" >
+			<value>classpath:/com/all/light/myBatis/myBatis-config.xml</value>
+		</property>
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	    <constructor-arg index="0" ref="sqlSessionFactory" /> 
+	</bean>
+	
+	<!-- member -->
+	<bean id="memDAO" class="com.all.light.dao.MemberDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession"/>
+	</bean>
+	<bean id="memSVC" class="com.all.light.service.MemberService"/>
+	
+	<!-- corporation -->
+	<bean id="corDAO" class="com.all.light.dao.CorporationDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession"/>
+	</bean>
+	<bean id="corSVC" class="com.all.light.service.CorporationService"/>
+	
+	<!-- shopping -->
+	<bean id="shopDAO" class="com.all.light.dao.ShoppingDAO">
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
+	</bean>
+	<bean id="shopSVC" class="com.all.light.service.ShoppingService"/>
+	
+	<!-- Question -->
+	<bean id="queDAO" class="com.all.light.dao.QuestionDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession"/>
+	</bean>
+	<bean id="queSVC" class="com.all.light.service.QuestionService"/>
+		
+	<!-- Notice -->
+	<bean id="notDAO" class="com.all.light.dao.NoticeDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession"/>
+	</bean>
+	<bean id="notSVC" class="com.all.light.service.NoticeService"/>
+	
+	<!-- Order -->
+	<bean id="ordDAO" class="com.all.light.dao.OrderDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession"/>
+	</bean>
+	<bean id="ordSVC" class="com.all.light.service.OrderService"/>
+	
+	<!-- Review -->
+	<bean id="revDAO" class="com.all.light.dao.ReviewDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession"/>
+	</bean>
+	<bean id="revSVC" class="com.all.light.service.ReviewService"/>
+	
+	<!-- Item -->
+	<bean id="itemDAO" class="com.all.light.dao.ItemDAO">
+      <property name="sqlSessionTemplate" ref="sqlSession"/>
+    </bean>
+   <bean id="itemSVC" class="com.all.light.service.ItemService"/>
+	
+	<!-- Diary -->
+	<bean id="diaDAO" class="com.all.light.dao.DiaryDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession"/>
+	</bean>
+	<bean id="diaSVC" class="com.all.light.service.DiaryService"/>
+	
+	<!-- Calrecipe -->
+	<bean id="creDAO" class="com.all.light.dao.CalrecipeDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession"/>
+	</bean>
+	<bean id="creSVC" class="com.all.light.service.CalrecipeService"/>
+
+	<!-- Caldictionary -->
+	<bean id="calDAO" class="com.all.light.dao.CaldictionaryDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession"/>
+	</bean>
+	<bean id="calSVC" class="com.all.light.service.CaldictionaryService"/>
+	
+	<!-- FreeBoard -->
+	<bean id="freDAO" class="com.all.light.dao.FreeBoardDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession"/>
+	</bean>
+	<bean id="freSVC" class="com.all.light.service.FreeBoardService"/>
+	
+	<!-- Cart -->
+	<bean id="cartDAO" class="com.all.light.dao.CartDAO">
+      <property name="sqlSessionTemplate" ref="sqlSession"/>
+    </bean>
+   <bean id="cartSVC" class="com.all.light.service.CartService"/>
+   
+   <!-- Buy -->
+	<bean id="buyDAO" class="com.all.light.dao.BuyDAO">
+      <property name="sqlSessionTemplate" ref="sqlSession"/>
+    </bean>
+   <bean id="buySVC" class="com.all.light.service.BuyService"/>
+	
+</beans>

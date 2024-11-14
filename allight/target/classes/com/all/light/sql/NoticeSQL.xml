@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"HTTP://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notice">
+	<!-- 공지수 조회, 검색 기능 포함 -->
+	<select id="totalCntWithSearch" resultType="Integer"
+		parameterType="PageUtil">
+		select count(*) from notice
+		<choose>
+			<when test="searchType=='nall'">
+				where ntitle like '%${searchWord}%'
+				or ncontent like '%${searchWord}%'
+			</when>
+			<otherwise>
+				where ${searchType} like '%${searchWord}%'
+			</otherwise>
+		</choose>
+	</select>
+
+	<!-- 공지 리스트, 검색 기능 포함 -->
+	<select id="searchList" resultType="java.util.HashMap"
+		parameterType="PageUtil">
+		select * from(
+		select row_number() over (order by nno) num,
+		A.* from notice A
+		<choose>
+			<when test="searchType=='nall'">
+				where ntitle like '%${searchWord}%'
+				or ncontent like '%${searchWord}%'
+			</when>
+			<otherwise>
+				where ${searchType} like '%${searchWord}%'
+			</otherwise>
+			</choose>
+			order by nno desc
+			)
+			where num between #{startNo} and #{endNo}
+	</select>
+
+	<!-- 공지 상세 정보 가져오기 -->
+	<select id="notInfo" resultType="notDTO" parameterType="notDTO">
+	select * from notice where nno = #{nno}
+	</select>
+	
+	<!-- 공지 수정 시 정보 가져오기 -->
+	<select id="noticeInfo" resultType="notDTO"
+		parameterType="Integer">
+		select * from notice where nno = #{nno}
+	</select>
+
+	<!-- 기업 정보 수정 -->
+	<update id="notUpdate" parameterType="notDTO">
+		UPDATE notice
+		SET
+		ntitle='${ntitle}', ncontent='${ncontent}'
+		where nno=#{nno}
+	</update>
+
+	<!-- 공지 삭제 -->
+	<delete id="notDelete" parameterType="Integer">
+		delete notice where
+		nno=#{nno}
+	</delete>
+
+	<!-- 공지 글쓰기 -->
+	<insert id="notWrite" parameterType="notDTO">
+		insert into notice
+		values(nno_seq.nextval,
+		#{nid},#{nnick},sysdate,#{ncontent},#{ntitle},0)
+	</insert>
+
+	<!-- 조회수 증가 -->
+	<update id="hitIncrease" parameterType="Integer">
+		UPDATE notice
+		SET
+		nhit=nhit+1
+		where nno=#{nno}
+	</update>
+
+
+</mapper>

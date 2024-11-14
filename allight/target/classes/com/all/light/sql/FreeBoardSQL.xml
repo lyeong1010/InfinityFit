@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"HTTP://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="freeboard">
+	<!-- 유저 -->
+	<!-- 글쓰기 -->
+	<insert id="write" parameterType="freDTO">
+		insert into freeboard(fno,
+		ftype, ftitle, fid, fnick, fdate, fcontent,fhit)
+		values(FNO_SEQ.nextval,#{ftype},#{ftitle},#{fid},#{fnick},sysdate,#{fcontent},0)
+	</insert>
+	<!-- 페이징 -->
+	<select id="getPageInfo" parameterType="PageUtil"	resultType="Integer">
+		select count(*) from freeboard
+		<choose>
+			<when test="searchType=='fall'">
+				where (ftitle like '%${searchWord}%'
+				or fcontent like '%${searchWord}%')
+				and ftype like '%${ftype}%'
+			</when>
+			<otherwise>
+				where ${searchType} like '%${searchWord}%'
+				and ftype like '%${ftype}%'
+			</otherwise>
+		</choose>
+	</select>
+	<!-- 마이페이지용 페이징 -->
+	<select id="getPageInfoMyPage" parameterType="PageUtil"	resultType="Integer">
+		select count(*) from freeboard
+		<choose>
+			<when test="searchType=='fall'">
+				where (ftitle like '%${searchWord}%'
+				or fcontent like '%${searchWord}%')
+				and ftype like '%${ftype}%'
+				and fid = #{fid}
+			</when>
+			<otherwise>
+				where ${searchType} like '%${searchWord}%'
+				and ftype like '%${ftype}%'
+				and fid = #{fid}
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="searchList" parameterType="PageUtil"	resultType="freDTO">
+		select * from(
+						select row_number() over (order by fno) num,
+			        	f.* from freeboard f
+			        <choose>
+					<when test="searchType=='fall'">
+						where (ftitle like '%${searchWord}%'
+						or fcontent like	'%${searchWord}%')
+						and ftype like '%${ftype}%')
+					</when>
+					<otherwise>
+						where ${searchType} like '%${searchWord}%'
+						and ftype like '%${ftype}%')
+					</otherwise>
+				</choose>
+			where num between ${startNo} and ${endNo}
+			order by num desc
+	</select>
+	<!-- 마이페이지용 리스트 -->
+		<select id="searchListMyPage" parameterType="PageUtil"	resultType="freDTO">
+		select * from(
+						select row_number() over (order by fno) num,
+			        	f.* from freeboard f
+			        <choose>
+					<when test="searchType=='fall'">
+						where (ftitle like '%${searchWord}%'
+						or fcontent like	'%${searchWord}%')
+						and ftype like '%${ftype}%'
+						and fid=#{fid})
+					</when>
+					<otherwise>
+						where ${searchType} like '%${searchWord}%'
+						and ftype like '%${ftype}%'
+						and fid=#{fid})
+					</otherwise>
+				</choose>
+			where num between ${startNo} and ${endNo}
+			order by num desc
+	</select>
+	
+	<insert id="writeFile" parameterType="freDTO">
+		insert into freeimage (fino, fno, fipath, fiimg, fioriname, filength)
+		values(fino_seq.nextval, 
+					(select * from(select fno from freeboard order by fno desc) <![CDATA[where rownum <= 1]]>),
+					#{fipath}, #{fiimg}, #{fioriname}, #{filength})
+	</insert>
+	
+	<!-- 글 조회 -->
+	<!-- 글 읽어오기 -->
+	<select id="getDetail" parameterType="Integer" resultType="freDTO">
+		select * from freeboard where fno=${value}
+	</select>
+	<!-- 파일 읽어오기 -->
+	<select id="getFile" parameterType="Integer" resultType="freDTO">
+		select * from freeimage where fno=${value}
+	</select>
+	
+	<!-- 댓글-->
+	<insert id="insertComm" parameterType="freDTO">
+		insert into freecomment values(fcno_seq.nextval, ${fno}, #{fcid},#{fcnick},#{fccontent},sysdate)
+	</insert>
+	<delete id="deleteComm" parameterType="Integer">
+		delete freecomment where fcno=#{value}
+	</delete>
+	<select id="getTotalCntOfComm" parameterType="Integer" resultType="Integer">
+		select count(*) from freecomment where fno=${value}
+	</select>
+	<select id="getCommList" parameterType="PageUtil" resultType="freDTO">
+		select * from (
+		    select row_number() over (order by fcno) num, 
+		    f.*
+		    from freecomment f
+		    where fno=${fno})
+		where num between ${startNo} and ${endNo}
+		order by num desc
+	</select>
+	
+	<!-- 수정 -->
+	<update id="update" parameterType="freDTO">
+		update freeboard set ftype=#{ftype}, ftitle=#{ftitle}, fnick=#{fnick}, fcontent=#{fcontent} 
+		where fno=${fno}
+	</update>
+	<insert id="updateFile">
+		insert into freeimage (fino, fno, fipath, fiimg, fioriname, filength)
+		values(fino_seq.nextval, 
+					#{fno}, #{fipath}, #{fiimg}, #{fioriname}, #{filength})
+	</insert>
+	
+	<!-- 삭제 -->
+	<delete id="delete" parameterType="freDTO">
+		delete from freeboard where fno=${fno}
+	</delete>
+	<delete id="deleteFile" parameterType="freDTO">
+		delete from freeimage where fno=${fno}
+	</delete>
+	
+		<!-- 조회수 증가 -->
+	<update id="hitIncrease" parameterType="Integer">
+		UPDATE freeboard
+		SET
+		fhit=fhit+1
+		where fno=#{fno}
+	</update>
+	
+	<!-- 좋아요한 닉네임 가져오기  -->
+	<select id="LikeId" resultType="java.lang.String" parameterType="int">
+		select flnick from freeboardlike where fcno = #{fcno}
+	</select>
+	
+	<!-- 좋아요 총 카운트 가져오기  -->
+	<select id="LikeCnt" resultType="int" parameterType="int">
+		select count(*) from freeboardlike 
+		where fcno=#{fcno}
+	</select>
+	
+	<!-- 해당 아이디의 리뷰 좋아요 정보(1아니면0) 가져오기  -->
+	<select id="isLike" resultType="int" parameterType="java.util.HashMap">
+		select count(*) from freeboardlike 
+		where fcno=#{fcno} and flid = #{mid}
+	</select>
+	
+	<!-- 좋아요 삽입   -->
+	<insert id="LikeIns" parameterType="java.util.HashMap">
+		insert into freeboardlike(flno,fcno,flid)
+		values (RLNO_SEQ.nextval,#{fcno},#{mid})
+	</insert>
+	
+	<!-- 좋아요 삭제   -->
+	<delete id="LikeDel" parameterType="java.util.HashMap">
+		delete from freeboardlike where fcno=#{fcno} and flid=#{mid}
+	</delete>
+	
+</mapper>

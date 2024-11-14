@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"HTTP://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="calrecipe">
+	<!-- member정보가져오기 -->
+	<select id="memberCheck" resultType="memDTO">
+	select * from member where mno=#{mno}
+	</select>
+	
+	<!-- recipe insert -->
+	<insert id="recipeCheck">
+	insert into calrecipe values(CRNO_SEQ.nextval,#{crheight},#{crweight},#{crcal},#{crbmi},#{mid},#{crbmr},#{crterm},#{cractive},#{crgoalweight},sysdate)
+	</insert>
+
+	<!-- recipe정보가져오기 -->
+	<select id="getRecipe" resultType="creDTO">
+	select * from calrecipe where crno=(select MAX(crno) from calrecipe where mid=#{mid})
+	</select>
+	
+</mapper>

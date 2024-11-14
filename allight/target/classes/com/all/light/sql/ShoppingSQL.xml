@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"HTTP://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Shopping">
+
+	<sql id="rnum">
+		rnum between ${startNo} and ${endNo} 
+		order by rnum desc
+	</sql>
+	
+	
+	<!-- ============================= 리스트   ================================== -->
+	<!-- 게시물 수 가져오기 -->
+	<!-- 카테고리별 -->
+	<select id="totalCnt" resultType="int" parameterType="java.lang.String">
+	select count(*) from item 
+	where icategory = #{icategory}
+	</select>
+	<!-- 모든  -->
+	<select id="totalCntAll" resultType="int">
+	select count(*) from item
+	</select>
+	
+	<!-- 인기순으로 -->
+	<!-- 카테고리별 게시물 가져오기 -->
+	<select id="listItem" resultType="shopDTO" parameterType="java.util.HashMap">
+		select * from 
+			(select 
+				ROW_NUMBER() OVER (order by ISELLAMOUNT) as rnum,
+    		 	i.* from item i
+   		 	 where icategory=#{icategory})
+		where <include refid="rnum"/>	
+	</select>
+	<!-- 모든 게시물 가져오기 -->
+	<select id="listItemAll" resultType="shopDTO" parameterType="PageUtil">
+		select * from 
+			(select 
+				ROW_NUMBER() OVER (order by ISELLAMOUNT) as rnum,
+    		 	i.* from item i)
+		where <include refid="rnum"/>
+	</select>
+	
+	<!-- 낮은 가격순으로 -->
+	<!-- 카테고리별 게시물 가져오기 -->
+	<select id="listItemRow" resultType="shopDTO" parameterType="java.util.HashMap">
+		select * from 
+			(select 
+				ROW_NUMBER() OVER (order by IPRICE desc) as rnum,
+    		 	i.* from item i
+   		 	 where icategory=#{icategory})
+		where <include refid="rnum"/>
+	</select>
+	<!-- 모든 게시물 가져오기 -->
+	<select id="listItemRowAll" resultType="shopDTO" parameterType="PageUtil">
+		select * from 
+			(select 
+				ROW_NUMBER() OVER (order by IPRICE desc) as rnum,
+    		 	i.* from item i)
+		where <include refid="rnum"/>
+	</select>
+	
+	<!-- 높은 가격순으로 -->
+	<!-- 카테고리별 게시물 가져오기 -->
+	<select id="listItemHigh" resultType="shopDTO" parameterType="java.util.HashMap">
+		select * from 
+			(select 
+				ROW_NUMBER() OVER (order by IPRICE) as rnum,
+    		 	i.* from item i
+   		 	 where icategory=#{icategory})
+		where <include refid="rnum"/>
+	</select>
+	<!-- 모든 게시물 가져오기 -->
+	<select id="listItemHighAll" resultType="shopDTO" parameterType="PageUtil">
+		select * from 
+			(select 
+				ROW_NUMBER() OVER (order by IPRICE) as rnum,
+    		 	i.* from item i)
+		where <include refid="rnum"/>
+	</select>
+	
+	
+	<!-- 대표 이미지 가져오기 -->
+	<select id="getRepreImage" resultType="String" parameterType="java.util.HashMap">
+		select imgimage from image 
+		where ino=${ino} and imgrepresent=1
+	</select>
+	
+	<!-- 검색된 게시물 가져오기 -->
+	<select id="searchList" resultType="shopDTO" parameterType="java.lang.String">
+		select * from 
+			(select 
+				ROW_NUMBER() OVER (order by ISELLAMOUNT) as rnum,
+    		 	i.* from item i)
+		where INAME like '%' || #{searchWord} || '%'
+		order by rnum desc
+	</select>
+	
+	
+	<!-- ============================= 브랜드관   ================================== -->
+	<!-- 해당 브랜드 상품 개수 가져오기  -->
+	<select id="totalCntBrand" resultType="int" parameterType="java.lang.String">
+	select count(*) from item where ICORP=#{brand}
+	</select>
+	
+	<!-- 해당 브랜드 상품목록 가져오기  -->
+	<!-- 인기순  -->
+	<select id="brandContent" resultType="shopDTO" parameterType="java.util.HashMap">
+		select * from 
+			(select 
+				ROW_NUMBER() OVER (order by ISELLAMOUNT) as rnum,
+    		 	i.* from item i
+    		 	where i.icorp = #{brand})
+ 		where <include refid="rnum"/>
+	</select>
+	<!-- 낮은 가격순  -->
+	<select id="brandContentRow" resultType="shopDTO" parameterType="java.util.HashMap">
+		select * from 
+			(select 
+				ROW_NUMBER() OVER (order by IPRICE desc) as rnum,
+    		 	i.* from item i
+    		 	where i.icorp = #{brand})
+		where <include refid="rnum"/>
+	</select>
+	<!-- 높은 가격순  -->
+	<select id="brandContentHigh" resultType="shopDTO" parameterType="java.util.HashMap">
+		select * from 
+			(select 
+				ROW_NUMBER() OVER (order by IPRICE) as rnum,
+    		 	i.* from item i
+    		 	where i.icorp = #{brand})
+		where <include refid="rnum"/>
+	</select>
+	
+	
+	<!-- ============================= 상세페이지   ================================== -->
+	<!-- 상세내용 가져오기(from ITEM)  -->
+	<select id="detailByIno" resultType="shopDTO" parameterType="java.util.HashMap">
+		select * from item where ino = #{ino}
+	</select>
+	
+	<!-- 상세내용 가져오기(from ITEM) - 류지혁  -->
+	<select id="detailByIno2" resultType="shopDTO" parameterType="java.util.HashMap">
+		select * from item where ino = #{ino}
+	</select>
+	
+	<!-- 상세내용 가져오기(from ITEM) 이름가져오기 - 류지혁  -->
+	<select id="getItemName" resultType="itemDTO" parameterType="java.util.HashMap">
+		select iname, A.ino, iqno from item A, itemquestion B
+        where A.ino = B.ino and iqid = #{mid}
+        order by iqno desc
+	</select>
+	
+	<!-- 상세내용 가져오기(from ITEM) 이름가져오기 - 류지혁  -->
+	<select id="getItemName2" resultType="itemDTO" parameterType="java.util.HashMap">
+		select iname, A.ino, iqno from item A, itemquestion B
+        where A.ino = B.ino and icorp = #{mid}
+        order by iqno desc
+	</select>
+	
+	<!-- 상세이미지 리스트 가져오기  -->
+	<select id="detailImgs" resultType="shopDTO" parameterType="java.util.HashMap">
+		select imgimage from image 
+		where ino = #{ino} and imgrepresent = 0 
+		order by imgno
+	</select>
+	
+	<!-- 상품 리뷰 총 개수 가져오기  -->
+	<select id="rTotalCnt" resultType="int" parameterType="java.util.HashMap">
+		select count(*) from review 
+		where ino = #{ino}
+	</select>
+	
+	<!-- 상품 리뷰 가져오기  -->
+	<select id="rList" resultType="reviewDTO" parameterType="java.util.HashMap">
+		select * from 
+			(select 
+				ROW_NUMBER() OVER (order by rno) as rnum,
+    		 	r.* from review r
+    		 	where r.ino = #{ino})
+		where <include refid="rnum"/>
+	</select>
+	
+	<!-- 상품 리뷰 좋아요한 아이디 가져오기  -->
+	<select id="rLikeId" resultType="java.lang.String" parameterType="int">
+		select rlid from reviewlike where rno = #{rno}
+	</select>
+	
+	<!-- 상품 리뷰 좋아요 총 카운트 가져오기  -->
+	<select id="rLikeCnt" resultType="int" parameterType="int">
+		select count(*) from reviewlike 
+		where rno=#{rno}
+	</select>
+	
+	<!-- 해당 아이디의 리뷰 좋아요 정보(1아니면0) 가져오기  -->
+	<select id="isLike" resultType="int" parameterType="java.util.HashMap">
+		select count(*) from reviewlike 
+		where rno=#{rno} and rlid = #{mid}
+	</select>
+	
+	<!-- 리뷰 좋아요 삽입   -->
+	<insert id="reviewIns" parameterType="java.util.HashMap">
+		insert into reviewlike
+		values (RLNO_SEQ.nextval,#{mid},#{rno})
+	</insert>
+	
+	<!-- 리뷰 좋아요 삭제   -->
+	<delete id="reviewDel" parameterType="java.util.HashMap">
+		delete from reviewlike where rno=#{rno} and rlid=#{mid}
+	</delete>
+	
+	<!-- 상품 문의 총 개수 가져오기  -->
+	<select id="qTotalCnt" resultType="int" parameterType="java.util.HashMap">
+		select count(*) from itemquestion 
+		where ino = #{ino}
+	</select>
+	
+	<!-- 상품 문의 총 개수 가져오기 - 류지혁  -->
+	<select id="qTotalCnt2" resultType="int" parameterType="java.util.HashMap">
+		select count(*) from itemquestion 
+		where iqid = #{mid}
+	</select>
+	
+	<!-- 상품 문의 총 개수 가져오기 기업 - 류지혁  -->
+	<select id="qTotalCnt3" resultType="int" parameterType="java.util.HashMap">
+        select count(*) from itemquestion, item
+        where item.ino = itemquestion.ino and item.icorp = #{mid}
+	</select>
+	
+	<!-- 전체 공개 문의내용 가져오기  -->
+	<select id="qAllView" resultType="iqueDTO" parameterType="java.util.HashMap">
+		select * from (select ROW_NUMBER() OVER (order by iqno) as rnum,
+			iqno,iqid,iqnick,iqtitle,iqdate,iqsecret from itemquestion 
+			where ino = #{ino})
+		where <include refid="rnum"/>
+	</select>
+	
+	<!-- 전체 공개 문의내용 가져오기  - 류지혁 -->
+	<select id="qAllView2" resultType="iqueDTO" parameterType="java.util.HashMap">
+		select * from (select ROW_NUMBER() OVER (order by iqno) as rnum,
+			iqno,ino,iqid,iqnick,iqtitle,iqdate,iqsecret from itemquestion 
+			where iqid = #{mid})
+		where <include refid="rnum"/>
+	</select>
+	
+	<!-- 전체 공개 문의내용 가져오기 기업  - 류지혁 -->
+	<select id="qAllView3" resultType="iqueDTO" parameterType="java.util.HashMap">
+			select * from (select ROW_NUMBER() OVER (order by iqno) as rnum,
+			A.iqno, A.ino, A.iqid, A.iqnick,A.iqtitle,A.iqdate,A.iqsecret from itemquestion A, item
+           where item.ino = A.ino and item.icorp = #{mid})
+		where <include refid="rnum"/>
+	</select>
+	
+	<!-- 상품 문의 내용 가져오기  -->
+	<select id="qContent" resultType="java.lang.String" parameterType="java.util.HashMap">
+		select iqcontent from itemquestion
+		where iqno = #{iqno}
+	</select>
+	
+	<!-- 상품 문의 댓글 여부 확인  -->
+	<select id="hasqComment" resultType="int" parameterType="java.util.HashMap">
+		select count(*) from itemquestioncomment 
+		where iqno = #{iqno}
+	</select>
+	
+	<!-- 상품 문의 댓글 내용 가져오기  -->
+	<select id="qComment" resultType="iqueDTO" parameterType="java.util.HashMap">
+		select iqcnick, iqccontent, iqcdate, iqcno
+		from itemquestioncomment
+		where iqno = #{iqno}
+	</select>
+	
+	<!-- 상품 문의 작성   -->
+	<insert id="iqWrite" parameterType="java.util.HashMap">
+		insert into itemquestion
+		values (IQNO_SEQ.nextval,#{ino},#{iqid},#{iqnick},#{iqtitle},#{iqcontent},#{iqsecret},sysdate)
+	</insert>
+	
+	<!-- 상품 문의 삭제   -->
+	<delete id="iqDelete" parameterType="java.util.HashMap">
+		delete from itemquestion where iqno=#{iqno}
+	</delete>
+	
+	<!-- 상품 문의 수정 -->
+	<update id="iqModify" parameterType="java.util.HashMap">
+		update itemquestion 
+		set iqtitle=#{iqtitle}, iqcontent=#{iqcontent}, iqsecret=#{iqsecret} 
+		where iqno=${iqno}
+	</update>
+
+	<!-- 상품 문의 댓글 삭제   -->
+	<delete id="iqcDelete" parameterType="java.util.HashMap">
+		delete from itemquestioncomment where iqno=#{iqno}
+	</delete>
+	
+</mapper>
+	
