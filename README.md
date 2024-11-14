@@ -27,3 +27,9 @@ A health management platform that helps users easily and professionally track an
 ## 🇯🇵 日本語
 
 ユーザーが健康管理目標を簡単かつ専門的に追跡し、達成するのをサポートするヘルスケアプラットフォームです。
+
+<a name="简体中文"></a>
+## 🇨🇳 简体中文
+
+帮助用户轻松且专业地跟踪和实现健康管理目标的健康平台。
+
