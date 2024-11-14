@@ -4,9 +4,9 @@
 
 ## 언어(Language)
 
-- [🇰🇷 한국어(Korean)](#한국어)
-- [🇺🇸 English](#english)
-- [🇯🇵 日本語(Japanese)](#日本語)
+- [🇰🇷 한국어(Korean)](README/README_ko.md)
+- [🇺🇸 English](README/README_en.md)
+- [🇯🇵 日本語(Japanese)](README/README_ja.md)
 
 ---
 
