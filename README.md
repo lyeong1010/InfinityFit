@@ -1,62 +1,92 @@
-# InfinityFit (IF)
+# Allight
+> all(모두) + light(가볍다) 
 
-## Mission Statement
-**Target Users:**  
-InfinityFit is designed for anyone who wishes to lead a long and healthy life by focusing on fitness and wellness.
+다이어트 관리 홈페이지 - 다이어리 & 커뮤니티 & 칼로리 사전 & 쇼핑 
 
-**Project Goal:**  
-The goal of InfinityFit is to create a user-friendly website that empowers individuals to track and plan their health effortlessly. By providing accessible tools and resources, InfinityFit aims to make it easy for users to manage their well-being and achieve their fitness goals.
+# 벤치마킹 사이트
+> [다신샵](https://dshop.dietshin.com/)<br>
+> [다이어트신 어플](https://play.google.com/store/apps/details?id=com.diet.calorie160105&hl=ko&gl=US)<br>
 
-## Features and Functionalities
-InfinityFit offers a wide range of features to support users on their health journey:
+# 주제와 목적
+1. 이용자들이 다이어트를 편하고 쉽게 할 수 있도록 관리해주는 사이트 개발
+2. 다이어트와 관련된 기록을 남길 수 있는 다이어리 개발
+3. 목표를 위한 일일 칼로리를 계산해주는 칼로리 처방기 개발
+4. 칼로리 정보를 제공하는 칼로리 사전 개발
+5. 사용자들이 서로 의견을 나누는 커뮤니티 개발
+6. 기업이 직접 상품을 등록하고 소비자가 구매할 수 있는 온라인 쇼핑몰 개발
 
-- **Personalized Programs:** Tailored fitness and health programs to suit individual needs.
-- **Health Tracking Tools:** Tools to log diet, exercise, and other health metrics to help users stay on track.
-- **Daily Calorie Calculator:** A tool to calculate daily calorie needs based on personal goals.
-- **Food Calorie Dictionary:** A comprehensive dictionary with calorie information for various foods.
-- **Community Platform:** A space for users to share advice, experiences, and tips with each other.
+# 개발환경
+1. 하드웨어 : 데스크탑, 64비트 Windows 8.1 플랫폼, 프로세서-인텔 코어
+2. 개발 언어 : Java(1.8.0_241), JSP(2.3), Servlet(3.1), Python(3.8.1)
+3. 개발 툴 : Eclipse (버전 2018-09, 4.9.0), PyCharm (버전 2019-03-03)
+4. DBMS : Oracle
+5. DBMS 연결 툴 : SQL Developer 
+6. 웹서버(WAS) : Apache-Tomcat 8.5
+7. 브라우저 : Chrome 81.0
+8. 웹프로그램 기술 : HTML, CSS, javascript, jQuery, Ajax
+9. 형상화 도구 : Git
 
-### Additional Features
-InfinityFit also includes advanced features to enhance the user experience:
+# 개발기간
+> 2020.06.04 ~ 2020.08.05
 
-- **Exercise Partner Matching:** Region-based matching to find exercise partners nearby.
-- **Beginner Fitness Guidance:** Step-by-step guidance for those new to fitness.
-- **AI Trainer Support:** Personalized training recommendations from an AI trainer.
-- **Weight Prediction Tools:** Tools to project weight trends based on current habits.
-- **Diet and Exercise Competition:** Friendly challenges with other users to stay motivated.
-- **Healthy Restaurant Recommendations:** Suggestions for diet-friendly restaurants.
-- **Personalized Meal Plans:** Customized meal plans to align with fitness goals.
+# 팀원
+> 김예림 류지혁 오지영 유태우 장한별 홍아름
 
+# 전체 개발내용
+### 1. 데이터 수집
+- 쇼핑몰에 등록할 상품 정보(상품명, 가격, 미리보기 이미지, 상세 이미지) 수집
+- 칼로리 사전에 등록할 음식 및 운동 칼로리 정보 수집
+### 2. 다이어리
+- 달력: 각 날짜별 하루 섭취·소비 칼로리 조회
+- 상세 조회·입력·수정 : 각 날짜별 몸무게, 섭취·소비 칼로리 내역, 일기, 사진 조회·입력·수정
+- 상세 조회시 칼로리 사전에 등록된 칼로리 정보 이용 가능
+- 다이어리 입력한 정보를 자유게시판에 연동하여 등록 가능
+- 칼로리 사전에 등록되지 않은 정보는 직접 입력
+- 월별 몸무게, 음식 칼로리, 운동 칼로리, 성공률 그래프 조회 기능
+### 3. 칼로리 처방
+- 회원, 비회원 모두 성별, 키, 현재체중, 목표체중을 입력하여 일별 칼로리 처방을 받을 수 있음
+- 카카오 로그인 시 카카오 공유 기능
+### 4. 칼로리 사전
+- 관리자: 칼로리 사전 입력·수정·조회
+- 일반회원: 칼로리 사전 조회, 관리자에게 칼로리 정보 요청 기능
+### 5. 커뮤니티
+- 자유게시판: 일반회원의 게시글 작성·수정·삭제, 조회, 상세조회, 검색 기능
+- 공지사항: 관리자만이 작성·수정·삭제 기능, 일반회원은 조회 기능
+- 문의사항: 일반회원이 작성하는 기업/관리자 문의 기능. 기업/관리자는 문의받은 내용 조회 기능
+- 댓글 기능: 댓글 작성·삭제 기능. 좋아요 입력/취소 기능
+### 6. 온라인 쇼핑몰
+- 기업: 상품 입력·수정·조회 기능, 일반회원이 상품 주문시 주문/배송 관리 기능
+- 일반회원: 상품 조회, 상품 주문시 주문/배송내역 조회, 장바구니 담기
+- 관리자: 상품 입력·수정·조회 기능
+### 7. 회원 관리
+  - 회원 가입 : 일반회원은 유효성 검증을 거친 후 회원 등록, 기업은 관리자 요청 승인 후 등록 기능
+  - 로그인 : 등록된 아이디와 비밀번호로 로그인(관리자/일반/기업), 카카오 로그인(일반)
+  - 내정보 : 로그인 한 회원의 정보 확인 기능
+  - 가입 회원 관리 : 관리자는 가입되어 있는 회원들의 정보 조회/검색/관리 기능
 
----------------------------------------------------------------
+# 나의 기여 항목
+### 1. 다이어리 (Front-End, Back-End)
+- 회원이 기록된 다이어트 관련 정보 조회
+- 다이어리 내용 입력·수정
+- 음식/운동 칼로리 등록시 칼로리 사전 조회/정보 가져오기 혹은 직접 정보 입력하여 등록<br>
+![다이어리 화면](https://user-images.githubusercontent.com/63843905/128103796-913a061a-87e4-4c95-8bc9-734ad7b85605.png)
+***
+![다이어리 상세 입력 화면](https://user-images.githubusercontent.com/63843905/128103875-92e3ed29-a302-4441-aca3-df87193c3a73.png)
+***
+![음식 칼로리 추가 화면](https://user-images.githubusercontent.com/63843905/128105018-4cc5ff0c-df0c-480f-a5f5-b2bf05cf5a14.png)
+***
+![음식 칼로리 추가 화면2](https://user-images.githubusercontent.com/63843905/128105056-3e2c3423-c1d8-4eb4-989c-58fd6fcb9fb6.png)
 
+### 2. 쇼핑 카테고리 목록·브랜드관·상세 (Front-End, Back-End)
+- 쇼핑 목록/브랜드관 조회
+- 상품 상세 페이지 내용 조회
+- 상세 페이지 내 상품 후기 좋아요/취소
+- 상세 페이지 내 상품 문의 작성·수정 <br>
+![쇼핑 목록 전체](https://user-images.githubusercontent.com/63843905/128104300-b5d375c8-cbf3-49ab-b8e3-1e7f7eeac466.png)
+***
+![쇼핑 목록 브랜드관](https://user-images.githubusercontent.com/63843905/128104309-49da2e8d-6030-4a38-87e0-60063e36e1bc.png)
+***
+![쇼핑 상세1](https://user-images.githubusercontent.com/63843905/128105252-027ccf4e-c2aa-4661-88d4-c46b912872d3.png)
+![쇼핑 상세2](https://user-images.githubusercontent.com/63843905/128105192-01dd732c-2d28-40d5-9965-d5b4c5fea6c6.png)
 
-# InfinityFit (IF)
-
-## 프로젝트 목표
-**대상 사용자:**  
-InfinityFit은 건강하고 긴 삶을 추구하는 모든 사람을 위해 설계되었습니다.
-
-**프로젝트 목표:**  
-InfinityFit의 목표는 사용자가 건강을 쉽게 추적하고 계획할 수 있는 사용자 친화적인 웹사이트를 만드는 것입니다. 다양한 도구와 리소스를 제공하여, 사용자가 자신의 웰빙을 관리하고 목표를 달성할 수 있도록 돕습니다.
-
-## 주요 기능
-InfinityFit은 사용자의 건강 관리 여정을 지원하기 위해 다양한 기능을 제공합니다:
-
-- **맞춤형 프로그램:** 개인의 필요에 맞춘 맞춤형 건강 및 피트니스 프로그램.
-- **건강 추적 도구:** 다이어트, 운동 및 기타 건강 지표를 기록하여 목표를 유지할 수 있는 도구.
-- **일일 칼로리 계산기:** 개인 목표에 따라 일일 칼로리 필요량을 계산하는 도구.
-- **음식 칼로리 사전:** 다양한 음식의 칼로리 정보를 제공하는 종합 사전.
-- **커뮤니티 플랫폼:** 사용자들이 조언과 경험, 팁을 공유할 수 있는 공간.
-
-### 추가 기능
-InfinityFit은 사용자의 경험을 향상시키기 위한 고급 기능도 포함하고 있습니다:
-
-- **운동 파트너 매칭:** 지역 기반으로 가까운 운동 파트너를 찾을 수 있는 매칭 서비스.
-- **초보자 피트니스 가이드:** 피트니스 초보자를 위한 단계별 가이드.
-- **AI 트레이너 지원:** AI 트레이너로부터 개인 맞춤형 운동 추천.
-- **체중 예측 도구:** 현재 습관을 바탕으로 체중 변화 예측.
-- **다이어트 및 운동 대결:** 다른 사용자들과 함께 도전하며 동기 부여.
-- **다이어트 레스토랑 추천:** 다이어트에 적합한 레스토랑 추천.
-- **맞춤형 식단 계획:** 피트니스 목표에 맞춘 맞춤형 식단 계획 제공.
-
+### 3. CSS 총괄 (Front-end)
