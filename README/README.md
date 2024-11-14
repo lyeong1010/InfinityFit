@@ -4,9 +4,12 @@
 
 ## 언어(Language)
 
-- [🇰🇷 한국어(Korean)](README/README_ko.md)
-- [🇺🇸 English](README/README_en.md)
-- [🇯🇵 日本語(Japanese)](README/README_ja.md)
+다양한 언어로 `README`를 제공합니다:
+
+- [🇰🇷 한국어 README](README/README_ko.md)
+- [🇺🇸 English README](README/README_en.md)
+- [🇯🇵 日本語 README](README/README_ja.md)
+
 
 ---
 
