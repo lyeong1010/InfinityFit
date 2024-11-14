@@ -9,7 +9,7 @@
 - [🇰🇷 한국어 README](README/README_ko.md)
 - [🇺🇸 English README](README/README_en.md)
 - [🇯🇵 日本語 README](README/README_ja.md)
-
+- [🇨🇳 简体中文 README](README/README_zh.md)
 
 ---
 
