@@ -1,5 +1,38 @@
 # InfinityFit (IF)
 
+## Mission Statement
+**Target Users:**  
+InfinityFit is designed for anyone who wishes to lead a long and healthy life by focusing on fitness and wellness.
+
+**Project Goal:**  
+The goal of InfinityFit is to create a user-friendly website that empowers individuals to track and plan their health effortlessly. By providing accessible tools and resources, InfinityFit aims to make it easy for users to manage their well-being and achieve their fitness goals.
+
+## Features and Functionalities
+InfinityFit offers a wide range of features to support users on their health journey:
+
+- **Personalized Programs:** Tailored fitness and health programs to suit individual needs.
+- **Health Tracking Tools:** Tools to log diet, exercise, and other health metrics to help users stay on track.
+- **Daily Calorie Calculator:** A tool to calculate daily calorie needs based on personal goals.
+- **Food Calorie Dictionary:** A comprehensive dictionary with calorie information for various foods.
+- **Community Platform:** A space for users to share advice, experiences, and tips with each other.
+
+### Additional Features
+InfinityFit also includes advanced features to enhance the user experience:
+
+- **Exercise Partner Matching:** Region-based matching to find exercise partners nearby.
+- **Beginner Fitness Guidance:** Step-by-step guidance for those new to fitness.
+- **AI Trainer Support:** Personalized training recommendations from an AI trainer.
+- **Weight Prediction Tools:** Tools to project weight trends based on current habits.
+- **Diet and Exercise Competition:** Friendly challenges with other users to stay motivated.
+- **Healthy Restaurant Recommendations:** Suggestions for diet-friendly restaurants.
+- **Personalized Meal Plans:** Customized meal plans to align with fitness goals.
+
+
+---------------------------------------------------------------
+
+
+# InfinityFit (IF)
+
 ## 프로젝트 목표
 **대상 사용자:**  
 InfinityFit은 건강하고 긴 삶을 추구하는 모든 사람을 위해 설계되었습니다.
@@ -27,32 +60,3 @@ InfinityFit은 사용자의 경험을 향상시키기 위한 고급 기능도 �
 - **다이어트 레스토랑 추천:** 다이어트에 적합한 레스토랑 추천.
 - **맞춤형 식단 계획:** 피트니스 목표에 맞춘 맞춤형 식단 계획 제공.
 
----------------------------------------------------------------
-# InfinityFit (IF)
-
-## Mission Statement
-**Target Users:**  
-InfinityFit is designed for anyone who wishes to lead a long and healthy life by focusing on fitness and wellness.
-
-**Project Goal:**  
-The goal of InfinityFit is to create a user-friendly website that empowers individuals to track and plan their health effortlessly. By providing accessible tools and resources, InfinityFit aims to make it easy for users to manage their well-being and achieve their fitness goals.
-
-## Features and Functionalities
-InfinityFit offers a wide range of features to support users on their health journey:
-
-- **Personalized Programs:** Tailored fitness and health programs to suit individual needs.
-- **Health Tracking Tools:** Tools to log diet, exercise, and other health metrics to help users stay on track.
-- **Daily Calorie Calculator:** A tool to calculate daily calorie needs based on personal goals.
-- **Food Calorie Dictionary:** A comprehensive dictionary with calorie information for various foods.
-- **Community Platform:** A space for users to share advice, experiences, and tips with each other.
-
-### Additional Features
-InfinityFit also includes advanced features to enhance the user experience:
-
-- **Exercise Partner Matching:** Region-based matching to find exercise partners nearby.
-- **Beginner Fitness Guidance:** Step-by-step guidance for those new to fitness.
-- **AI Trainer Support:** Personalized training recommendations from an AI trainer.
-- **Weight Prediction Tools:** Tools to project weight trends based on current habits.
-- **Diet and Exercise Competition:** Friendly challenges with other users to stay motivated.
-- **Healthy Restaurant Recommendations:** Suggestions for diet-friendly restaurants.
-- **Personalized Meal Plans:** Customized meal plans to align with fitness goals.
