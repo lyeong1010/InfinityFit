@@ -111,3 +111,8 @@ From fitness to wellness, we provide personalized tools and resources to make it
 ---
 
 **InfinityFit** supports **every step** of achieving your health goals. Start your journey to a healthier life today! 💪🌱
+
+## Documentation
+
+The full documentation for this project is available on [Read the Docs](https://infinityfit.readthedocs.io/en/latest/).
+
