@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Technical Overview &#8212; InfinityFit 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="How to Use InfinityFit" href="how_to_use.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="technical-overview">
+<h1>Technical Overview<a class="headerlink" href="#technical-overview" title="Link to this heading">¶</a></h1>
+<section id="infinityfit-architecture">
+<h2>InfinityFit Architecture<a class="headerlink" href="#infinityfit-architecture" title="Link to this heading">¶</a></h2>
+<p>InfinityFit is built on a <strong>modular architecture</strong> that provides scalability, flexibility, and easy integration with external services. The platform is designed to handle large amounts of user data while maintaining performance and security.</p>
+<p>The architecture consists of the following key components:</p>
+<ul class="simple">
+<li><p><strong>Frontend</strong>: The user interface (UI) of the web application is developed using modern web technologies like <strong>React.js</strong>, providing a smooth user experience across different devices.</p></li>
+<li><p><strong>Backend</strong>: The server-side logic and API layer is built using <strong>Node.js</strong> and <strong>Express</strong>, following a <strong>RESTful</strong> approach.</p></li>
+<li><p><strong>Database</strong>: A <strong>SQL database</strong> (e.g., PostgreSQL) stores user data and health tracking information, ensuring data consistency and scalability.</p></li>
+<li><p><strong>AI Engine</strong>: A <strong>Python-based AI engine</strong> provides personalized workout plans, nutrition recommendations, and progress tracking.</p></li>
+<li><p><strong>Web Application</strong>: The web application offers various features that allow users to set fitness goals, track their progress, and interact with the platform.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="technology-stack">
+<h2>Technology Stack<a class="headerlink" href="#technology-stack" title="Link to this heading">¶</a></h2>
+<p>InfinityFit utilizes a modern technology stack to ensure performance, reliability, and security:</p>
+<ul class="simple">
+<li><p><strong>Frontend</strong>:
+- The web application is built using <strong>React.js</strong>.
+- Responsive web pages are created using <strong>HTML5</strong>, <strong>CSS3</strong>, and <strong>JavaScript</strong>.
+- UI components and responsive layouts are designed using <strong>Bootstrap</strong>.</p></li>
+<li><p><strong>Backend</strong>:
+- <strong>Node.js</strong> is used for handling asynchronous tasks.
+- <strong>Express.js</strong> is used for building the RESTful API.
+- Secure user authentication and session management are done using <strong>JWT</strong> (JSON Web Tokens).</p></li>
+<li><p><strong>Database</strong>:
+- The relational database <strong>PostgreSQL</strong> is used for structured data storage.
+- <strong>Sequelize ORM</strong> is used to interact with the database in an object-oriented way.</p></li>
+<li><p><strong>AI Engine</strong>:
+- <strong>TensorFlow</strong> and <strong>Scikit-learn</strong> libraries are used for machine learning algorithms that generate personalized recommendations.
+- <strong>Pandas</strong> and <strong>NumPy</strong> are used for data manipulation and analysis.</p></li>
+<li><p><strong>Cloud</strong>:
+- <strong>AWS</strong> is used for cloud computing, storage, and database management.
+- <strong>Docker</strong> is used for containerization and easier deployment.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="data-flow">
+<h2>Data Flow<a class="headerlink" href="#data-flow" title="Link to this heading">¶</a></h2>
+<p>The data flow in InfinityFit is designed to ensure smooth interaction between the user, the web application, and the backend services. The data flow follows these key steps:</p>
+<ol class="arabic simple">
+<li><p><strong>User Registration</strong>:
+- Users sign up through the web application.
+- User data is securely stored in the database after authentication using JWT.</p></li>
+<li><p><strong>Goal Setting and Tracking</strong>:
+- Users set their health goals (e.g., weight loss, muscle gain, nutrition improvement).
+- The AI engine processes user data (e.g., age, weight, exercise habits) to generate a personalized workout plan.
+- The backend stores progress data in the database, and users can track their progress through the web application.</p></li>
+<li><p><strong>AI Recommendations</strong>:
+- The AI engine analyzes user data and provides dynamic workout plans and meal suggestions.
+- Recommendations are updated in real-time based on user progress and feedback.</p></li>
+<li><p><strong>User Feedback</strong>:
+- Users interact with the workout plans and recommendations, providing feedback.
+- The feedback is stored and used to improve future recommendations.</p></li>
+</ol>
+<p>—</p>
+</section>
+<section id="security-considerations">
+<h2>Security Considerations<a class="headerlink" href="#security-considerations" title="Link to this heading">¶</a></h2>
+<p>Security is a top priority for InfinityFit, especially since it handles sensitive health data. The following security measures are in place:</p>
+<ul class="simple">
+<li><p><strong>Encryption</strong>: Sensitive data, such as user credentials and health information, is protected using <strong>AES-256</strong> encryption.</p></li>
+<li><p><strong>Authentication</strong>: <strong>JWT</strong> (JSON Web Tokens) is used for secure authentication and session management.</p></li>
+<li><p><strong>Access Control</strong>: Role-based access control (RBAC) ensures that only authorized users can access certain features, such as administrative tools and sensitive health data.</p></li>
+<li><p><strong>Data Privacy</strong>: InfinityFit complies with industry standards for data privacy, including <strong>GDPR</strong> (General Data Protection Regulation) for users in Europe.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="scalability-and-performance">
+<h2>Scalability and Performance<a class="headerlink" href="#scalability-and-performance" title="Link to this heading">¶</a></h2>
+<p>InfinityFit is designed to scale as the number of users grows, with several measures in place to ensure optimal performance:</p>
+<ul class="simple">
+<li><p><strong>Load Balancing</strong>: <strong>AWS Elastic Load Balancing</strong> (ELB) is used to distribute traffic evenly across multiple server instances, ensuring high availability.</p></li>
+<li><p><strong>Caching</strong>: <strong>Redis</strong> is used for caching frequently accessed data, reducing database load and improving response times.</p></li>
+<li><p><strong>Horizontal Scaling</strong>: The application is designed to support horizontal scaling, adding more instances to handle increased traffic.</p></li>
+<li><p><strong>Asynchronous Processing</strong>: <strong>Node.js</strong> and <strong>RabbitMQ</strong> are used to handle non-blocking tasks and background jobs.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">¶</a></h2>
+<p>InfinityFit uses a robust and modern technology stack to ensure scalability, performance, and security. With its modular design, cloud-based infrastructure, and advanced AI features, InfinityFit provides users with a personalized and efficient health management web application.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">InfinityFit</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">About InfinityFit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started with InfinityFit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_use.html">How to Use InfinityFit</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Technical Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#infinityfit-architecture">InfinityFit Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#technology-stack">Technology Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-flow">Data Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#security-considerations">Security Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scalability-and-performance">Scalability and Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="how_to_use.html" title="previous chapter">How to Use InfinityFit</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Team10.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/technical_overview.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,114 @@
+
+### Summary:
+1. **Authentication**: API requests require a Bearer token for authentication, which should be included in the `Authorization` header.
+2. **Endpoints**: Each endpoint is detailed with the HTTP method, URL, required parameters, and example requests and responses.
+3. **Error Handling**: The API handles common errors like missing parameters, unauthorized access, and server issues.
+4. **Rate Limiting**: Users can make up to 1000 requests per hour with their API token to prevent abuse.
+
+This API reference follows the structure of your README and ensures that users can understand how to interact with the InfinityFit platform's backend system. Let me know if you'd like any changes or additions!
+
+API Reference
+=============
+
+This document provides detailed information about the **API endpoints** available for the **InfinityFit** web application. Each endpoint includes HTTP methods, required parameters, and example responses.
+
+---
+
+Authentication
+--------------
+All API requests require **authentication** using a **Bearer Token**. The token should be included in the `Authorization` header of each request.
+
+Example:
+---
+
+Endpoint 1: User Registration
+-----------------------------
+**POST** `/api/v1/users/register`
+
+Registers a new user and returns an authentication token.
+
+### Request Parameters:
+- **username** (string, required): The username for the user.
+- **email** (string, required): The user's email address.
+- **password** (string, required): The user's password.
+
+### Request Example:
+```json
+{
+    "username": "lyeong1010",
+    "email": "sohee2125@gmail.com",
+    "password": "securepassword123"
+}
+{
+    "message": "User successfully registered.",
+    "token": "YOUR_API_TOKEN"
+}
+{
+    "email": "sohee2125@gmail.com",
+    "password": "securepassword123"
+}
+{
+    "message": "Login successful.",
+    "token": "YOUR_API_TOKEN"
+}
+GET /api/v1/users/profile
+Authorization: Bearer YOUR_API_TOKEN
+
+{
+    "username": "lyeong1010",
+    "email": "sohee2125@gmail.com",
+    "goals": {
+        "fitness": "Lose 5kg",
+        "nutrition": "Maintain balanced diet"
+    },
+    "progress": {
+        "fitness": "60%",
+        "nutrition": "50%"
+    }
+}
+{
+    "username": "lyeong1010_updated",
+    "goals": {
+        "fitness": "Lose 3kg",
+        "nutrition": "Eat healthier"
+    }
+}
+
+{
+    "message": "Profile successfully updated."
+}
+GET /api/v1/fitness-programs
+Authorization: Bearer YOUR_API_TOKEN
+
+[
+    {
+        "program_name": "Beginner Workout Program",
+        "description": "A program for people just starting their fitness journey.",
+        "duration": "4 weeks",
+        "level": "Beginner"
+    },
+    {
+        "program_name": "Intermediate Strength Training",
+        "description": "A strength training program for individuals with some fitness experience.",
+        "duration": "6 weeks",
+        "level": "Intermediate"
+    }
+]
+{
+    "program_name": "Advanced Strength Training",
+    "description": "An advanced strength training program to build muscle.",
+    "duration": "8 weeks",
+    "level": "Advanced"
+}
+
+{
+    "message": "Fitness program successfully created."
+}
+{
+    "error": "Invalid email or password.",
+    "status_code": 400
+}
+I updated the username to `lyeong1010` and the email to `sohee2125@gmail.com` in the relevant examples.
+
+Let me know if you need anything else!
+
