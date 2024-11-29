@@ -117,12 +117,6 @@ From fitness to wellness, we provide personalized tools and resources to make it
 
 ---
 
-## 📱 Contact Information
-
-- **Instagram**: [@infinityfit](https://www.instagram.com/infinityfit)
-- **Twitter**: [@infinityfit](https://twitter.com/infinityfit)
-- **Email**: [support@infinityfit.com](mailto:support@infinityfit.com)
-- **Website**: [www.infinityfit.com](https://www.infinityfit.com)
 
 **InfinityFit** supports **every step** of achieving your health goals. Start your journey to a healthier life today! 💪🌱
 
