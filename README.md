@@ -109,6 +109,20 @@ From fitness to wellness, we provide personalized tools and resources to make it
 - **Website**: [www.infinityfit.com](https://www.infinityfit.com)
 
 ---
+## 💬 Community Section
+
+- **Discussion Forums**: Join the conversation and discuss features on [GitHub Discussions](https://github.com/infinityfit/discussions).
+- **Mailing List**: Subscribe to our [Mailing List](https://infinityfit.com/mailing-list) for the latest updates and announcements.
+- **Other Communication Channels**: Connect with us on Slack: [#InfinityFit Slack](https://slack.com/infinityfit) or join our community on [Discord](https://discord.gg/infinityfit).
+
+---
+
+## 📱 Contact Information
+
+- **Instagram**: [@infinityfit](https://www.instagram.com/infinityfit)
+- **Twitter**: [@infinityfit](https://twitter.com/infinityfit)
+- **Email**: [support@infinityfit.com](mailto:support@infinityfit.com)
+- **Website**: [www.infinityfit.com](https://www.infinityfit.com)
 
 **InfinityFit** supports **every step** of achieving your health goals. Start your journey to a healthier life today! 💪🌱
 
