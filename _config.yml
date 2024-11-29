@@ -1,13 +1,8 @@
 theme: jekyll-theme-cayman
-# 사이트 이름 및 설명
 title: InfinityFit
 description: Empowering wearable technology for a healthier tomorrow.
-# 사이트 URL (필요시 설정)
 url: "https://lyeong1010.github.io/InfinityFit"
-# GitHub 저장소 링크
 repository: "https://github.com/lyeong1010/InfinityFit"
-# 커스텀 CSS 파일 추가 (스타일 수정)
-style: /assets/css/custom.css
-# 사이트 기본 설정 (URL, 이메일 등)
 email: your-email@example.com
+
 
