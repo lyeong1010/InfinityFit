@@ -103,18 +103,19 @@ From fitness to wellness, we provide personalized tools and resources to make it
 
 ## 📱 Social Media & Contact
 
-- **Instagram**: [@infinityfit](https://www.instagram.com/infinityfit)
-- **Twitter**: [@infinityfit](https://twitter.com/infinityfit)
-- **Email**: [support@infinityfit.com](mailto:support@infinityfit.com)
+- **Email 1**: [support@infinityfit.com](mailto:sohee2125@gmail.com)
+- **Email 2**: [support@infinityfit.com](mailto:dmsdn01@naver.com)
+- **Email 3**: [support@infinityfit.com](mailto:lyeongeun1010@naver.com)
 - **Website**: [www.infinityfit.com](https://www.infinityfit.com)
 
 ---
 
 ## 💬 Community Section
 
-- **Discussion Forums**: Join the conversation and discuss features on [GitHub Discussions](https://github.com/infinityfit/discussions).
-- **Mailing List**: [Subscribe to our Mailing List](https://groups.google.com/d/forum/infinityfit) for the latest updates and announcements.
-- **Other Communication Channels**: Connect with us on Slack: [#InfinityFit Slack](https://slack.com/infinityfit) or join our community on [Discord](https://discord.gg/infinityfit).
+- **GitHub Discussions**: Share your ideas and get support on [GitHub Discussions](https://github.com/lyeong1010/InfinityFit/discussions).
+- **Discussion Forums**: Join the conversation and discuss features on [Discussion Forums](https://github.com/lyeong1010/InfinityFit/discussions)).
+- **Mailing List**: [Subscribe to our Mailing List]([https://groups.google.com/g/infinityfit]) for the latest updates and announcements.
+- **Other Communication Channels**: Connect with us on Slack: [#InfinityFit Slack](https://slack.com/infinityfit_example).
 
 ---
 
