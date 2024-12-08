@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커뮤니티</title>
+    <link rel="stylesheet" href="community.css">
+
+</head>
+<body>
+    <header>
+        <h1>InfinityFit 커뮤니티</h1>
+        <nav>
+            <a href="index.html">메인 페이지</a> <!-- 메인 페이지로 돌아가는 링크 -->
+        </nav>
+    </header>
+    <main>
+        <section id="community">
+            <h2>💬 커뮤니티</h2>
+            <form id="postForm">
+                <input type="text" id="postTitle" placeholder="제목" required>
+                <textarea id="postContent" placeholder="내용" required></textarea>
+                <button type="submit">게시글 작성</button>
+            </form>
+            <div id="posts"></div>
+        </section>
+    </main>
+    <script src="community.js"></script> <!-- 커뮤니티 전용 스크립트 -->
+</body>
+</html>
