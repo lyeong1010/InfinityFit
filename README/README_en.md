@@ -26,27 +26,35 @@ We aim to provide tools and information that make health management **simpler** 
 
 ## 📌 Features
 
-### 🏋️ Workout Management
-- Create personalized workout plans
-- Track workout records and progress
-- Support for various workout types
+### 🍏 **Diet Plan Calculator**
+- Input **current weight**, **goal weight**, age, and gender to create a tailored diet plan.
+- Set the desired **diet duration** (in days) and calculate your personalized plan.
+- Provides a simple and user-friendly interface to manage diet goals effectively.
 
-### 🍎 Diet Management
-- Log food and calorie intake
-- Automatic nutritional analysis
-- Provide recommendations for healthy eating habits
+---
 
-### 🎯 Goal Setting
-- Set personalized health goals
-- Manage weight, exercise, and calorie goals
+### 🍎 **Food Calorie Dictionary**
+- Search for **calorie information** of various foods in a convenient dictionary format.
+- Supports quick look-up to assist in daily calorie tracking and planning.
 
-### 📊 Data Visualization
-- Graphs and charts of health data
-- Statistical analysis of progress
+---
 
-### 👥 Multi-User Support
-- Create accounts for family or group users
-- Set shared and collaborative health goals
+### 📖 **Health Management Diary**
+- Record daily health-related data, including diet, workouts, and other activities.
+- Helps track progress and maintain consistency over time.
+
+---
+
+### 📊 **Body Weight Trends Visualization**
+- Generate **graphs and charts** to visualize body weight changes over time.
+- Provides insights into progress and areas for improvement in health goals.
+
+---
+
+### 👥 **Community Features**
+- Connect with others in the community to **share experiences** and **motivate** each other.
+- Collaborate on health challenges and celebrate milestones together.
+
 
 ---
 
