@@ -4,12 +4,16 @@ description: Empowering wearable technology for a healthier tomorrow.
 url: "https://lyeong1010.github.io/InfinityFit"
 repository: "https://github.com/lyeong1010/InfinityFit"
 
-# 커스텀 CSS 파일 추가 (스타일 수정)
-style: /assets/css/custom.css
-
-# 사이트 기본 설정 (URL, 이메일 등)
+# 이메일 설정
 email: dmsdn01@naver.com
 
-collections:
-  workouts:
-    output: true
+# (옵션) 커스텀 CSS 설정은 파일이 존재할 때만 활성화
+# style: /assets/css/custom.css
+
+# 컬렉션 설정은 실제 파일이 있을 때만 사용
+# collections:
+#   workouts:
+#     output: true
+
+include:
+  - README.md
