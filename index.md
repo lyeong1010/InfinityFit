@@ -1,1 +1,6 @@
----\nlayout: default\ntitle: InfinityFit\n---\n\n{% include_relative README.md %}
+---
+layout: default
+title: InfinityFit
+---
+
+{% include_relative README.md %}
