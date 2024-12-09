@@ -24,24 +24,36 @@ Each user can use a **custom program** to reach their goals and monitor their pr
 
 ---
 
-## 🏅 Core Features
+## 📌 Features
 
-InfinityFit provides a wide range of **features** to support your health journey:
+### 🍏 **Diet Plan Calculator**
+- Input **current weight**, **goal weight**, age, and gender to create a tailored diet plan.
+- Set the desired **diet duration** (in days) and calculate your personalized plan.
+- Provides a simple and user-friendly interface to manage diet goals effectively.
 
-#### 🏋️‍♀️ **Personalized Fitness Programs**
-- Provides **customized workout plans** tailored to individual goals and needs.
+---
 
-#### 📊 **Health Tracking Tools**
-- Records various data such as diet, exercise, and sleep to provide a **tracking system** that helps you move towards your goals.
+### 🍎 **Food Calorie Dictionary**
+- Search for **calorie information** of various foods in a convenient dictionary format.
+- Supports quick look-up to assist in daily calorie tracking and planning.
 
-#### 🍎 **Daily Calorie Calculator**
-- A tool that calculates **personalized calorie goals** according to the user's individual goals.
+---
 
-#### 🍽️ **Food Calorie Dictionary**
-- A **convenient database** that provides **calorie information** for various foods at a glance.
+### 📖 **Health Management Diary**
+- Record daily health-related data, including diet, workouts, and other activities.
+- Helps track progress and maintain consistency over time.
 
-#### 💬 **Community Features**
-- Provides **motivation** by allowing users to **exchange experiences and advice** with others working towards similar goals.
+---
+
+### 📊 **Body Weight Trends Visualization**
+- Generate **graphs and charts** to visualize body weight changes over time.
+- Provides insights into progress and areas for improvement in health goals.
+
+---
+
+### 👥 **Community Features**
+- Connect with others in the community to **share experiences** and **motivate** each other.
+- Collaborate on health challenges and celebrate milestones together.
 
 ---
 
@@ -119,7 +131,3 @@ From fitness to wellness, we provide personalized tools and resources to make it
 ---
 
 **InfinityFit** supports **every step** of achieving your health goals. Start your journey to a healthier life today! 💪🌱
-
-## Documentation
-
-The full documentation for this project is available on [Read the Docs](https://infinityfit.readthedocs.io/en/latest/).
