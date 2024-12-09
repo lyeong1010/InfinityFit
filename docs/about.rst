@@ -6,7 +6,6 @@ Introduction
 **InfinityFit** is an all-in-one **health management platform** designed to help users easily and professionally track and achieve their health goals.  
 It offers a comprehensive solution to record and analyze workouts, diets, and health metrics.
 
----
 
 Target Audience
 ---------------
