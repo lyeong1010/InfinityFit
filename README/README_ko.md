@@ -90,16 +90,16 @@
 
 ### 2️⃣ 설치 방법
 1. 이 리포지토리를 클론합니다(bash):
-   git clone https://github.com/lyeong1010/InfinityFit.git
+- git clone https://github.com/lyeong1010/InfinityFit.git
 
 2. 프로젝트 디텍토리로 이동합니다 :
-   cd InfinityFit
+- cd InfinityFit
 
 3. 필수 의존성을 설치합니다 :
-   npm install
+- npm install
 
 4. 개발 서버를 실행합니다 :
-   npm start
+- npm start
    
 
 ---
