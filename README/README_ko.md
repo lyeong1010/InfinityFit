@@ -101,14 +101,60 @@
 4. 개발 서버를 실행합니다 :
    - npm start
    
+---
+
+## 🤝 기여하기
+
+InfinityFit은 여러분의 기여를 환영합니다!  
+다음과 같은 방식으로 기여할 수 있습니다:
+
+### 1️⃣ 버그 리포트
+- 예상치 못한 동작을 발견하면 [GitHub Issues](https://github.com/lyeong1010/InfinityFit/issues)에 남겨주세요.
+
+### 2️⃣ 기능 제안
+- 추가되었으면 하는 기능이나 개선사항을 제안해 주세요.
+
+### 3️⃣ Pull Request 제출
+- 기능 구현이나 버그 수정 후 Pull Request(PR)을 보내주세요.
+
+> **기여하기 전에 [CONTRIBUTING.md](CONTRIBUTING.md)를 읽어주세요.**
 
 ---
 
+## 📄 라이선스
+
+이 프로젝트는 **Apache 2.0 License**로 라이선스가 부여됩니다.  
+자세한 내용은 [LICENSE](LICENSE) 파일을 확인하세요.
+
+--- 
+
 ## 📬 **연락처 및 소셜 미디어**
 
-- **이영은** [support@infinityfit.com](mailto:lyeongeun1010@naver.com)
-- **김은우** [support@infinityfit.com](mailto:dmsdn01@naver.com)
-- **김소희** [support@infinityfit.com](mailto:sohee2125@gmail.com)
+InfinityFit 팀은 여러분의 의견과 피드백을 환영합니다!  
+프로젝트 관련 문의, 버그 리포트 또는 제안 사항이 있다면 아래 연락처로 연락하거나 GitHub Issues를 통해 남겨주세요.
+
+---
+
+### **🔗 GitHub Issues**
+- 문제를 발견했거나 제안 사항이 있으신가요?  
+  👉 [GitHub Issues 페이지 바로가기](https://github.com/lyeong1010/InfinityFit/issues)
+
+---
+
+### **📧 이메일 연락처**
+- **이영은**  
+  [📩 lyeongeun1010@naver.com](mailto:lyeongeun1010@naver.com)
+
+- **김은우**  
+  [📩 dmsdn01@naver.com](mailto:dmsdn01@naver.com)
+
+- **김소희**  
+  [📩 sohee2125@gmail.com](mailto:sohee2125@gmail.com)
+
+---
+
+### **🌐 소셜 미디어**
+- 현재 소셜 미디어 계정이 설정되어 있지 않습니다. 추후 업데이트를 통해 추가될 예정입니다!
 
 **InfinityFit**은 **건강 목표 달성**을 위한 **최적의 동반자**입니다. 여러분의 건강 여정을 함께하며 **지속적인 변화**를 이끌어냅니다! 💪🌱
 
