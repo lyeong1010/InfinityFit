@@ -106,7 +106,6 @@ From fitness to wellness, we provide personalized tools and resources to make it
 - **Email 1**: [support@infinityfit.com](mailto:sohee2125@gmail.com)
 - **Email 2**: [support@infinityfit.com](mailto:dmsdn01@naver.com)
 - **Email 3**: [support@infinityfit.com](mailto:lyeongeun1010@naver.com)
-- **Website**: [www.infinityfit.com](file:///C:/Users/eunwookim/Downloads/InfinityFit-master/InfinityFit-master/InfinityFit/index.html)
 
 ---
 
