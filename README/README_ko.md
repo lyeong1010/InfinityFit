@@ -117,8 +117,6 @@ InfinityFit은 여러분의 기여를 환영합니다!
 ### 3️⃣ Pull Request 제출
 - 기능 구현이나 버그 수정 후 Pull Request(PR)을 보내주세요.
 
-> **기여하기 전에 [CONTRIBUTING.md](CONTRIBUTING.md)를 읽어주세요.**
-
 ---
 
 ## 📄 라이선스
