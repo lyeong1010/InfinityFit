@@ -48,6 +48,7 @@ Key Features
 - Collaborate on health challenges and celebrate milestones together.
 
 
+
 Getting Started
 ---------------
 ### Prerequisites
@@ -67,6 +68,7 @@ To run this project, ensure the following are installed:
  - npm start
 
 
+
 ## 🤝 Contributing
 
 We welcome contributions to **InfinityFit**!  
@@ -80,6 +82,7 @@ You can contribute in the following ways:
 
 ### 3️⃣ Submit a Pull Request
 - Implement features or fix bugs, and then submit a **Pull Request (PR)**.
+
 
 
 
@@ -98,7 +101,8 @@ Steps for contributing:
 - Commit and test your changes.
 - Submit a pull request with a detailed description.
 
----
+
+
 
 Contact Information
 -------------------
@@ -111,7 +115,8 @@ Have a problem or suggestion?
 - **Eun Woo Kim**: [dmsdn01@naver.com](mailto:dmsdn01@naver.com)  
 - **Sohee Kim**: [sohee2125@gmail.com](mailto:sohee2125@gmail.com)
 
----
+
+
 
 License
 -------
