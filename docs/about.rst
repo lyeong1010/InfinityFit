@@ -17,14 +17,12 @@ Target Audience
 
 This platform provides **personalized solutions** tailored to **all age groups** and **lifestyles**.
 
----
 
 Project Goals
 -------------
 The goal of **InfinityFit** is to help users manage their health **easily and professionally** while effectively achieving their goals.  
 We aim to provide tools and information that make health management **simpler** and **continuously rewarding**.
 
----
 
 Key Features
 ------------
@@ -49,7 +47,6 @@ Key Features
 - Connect with others in the community to **share experiences** and **motivate** each other.
 - Collaborate on health challenges and celebrate milestones together.
 
----
 
 Getting Started
 ---------------
@@ -69,7 +66,6 @@ To run this project, ensure the following are installed:
 4. Start the development server:
  - npm start
 
----
 
 ## 🤝 Contributing
 
@@ -85,10 +81,7 @@ You can contribute in the following ways:
 ### 3️⃣ Submit a Pull Request
 - Implement features or fix bugs, and then submit a **Pull Request (PR)**.
 
----
 
-
----
 
 Contributing
 ------------
