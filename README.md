@@ -31,25 +31,21 @@ Each user can use a **custom program** to reach their goals and monitor their pr
 - Set the desired **diet duration** (in days) and calculate your personalized plan.
 - Provides a simple and user-friendly interface to manage diet goals effectively.
 
----
 
 ### 🍎 **Food Calorie Dictionary**
 - Search for **calorie information** of various foods in a convenient dictionary format.
 - Supports quick look-up to assist in daily calorie tracking and planning.
 
----
 
 ### 📖 **Health Management Diary**
 - Record daily health-related data, including diet, workouts, and other activities.
 - Helps track progress and maintain consistency over time.
 
----
 
 ### 📊 **Body Weight Trends Visualization**
 - Generate **graphs and charts** to visualize body weight changes over time.
 - Provides insights into progress and areas for improvement in health goals.
 
----
 
 ### 👥 **Community Features**
 - Connect with others in the community to **share experiences** and **motivate** each other.
