@@ -47,7 +47,7 @@
 
 ---
 
-## 🔧 **추가 기능**
+## 🔧 **추가 기능(업데이트 예정)**
 
 **InfinityFit**은 사용자의 경험을 **더 풍부하게** 만들 수 있는 다양한 **부가 기능**도 제공합니다:
 
@@ -87,9 +87,8 @@
 
 ## 📬 **연락처 및 소셜 미디어**
 
-- **Instagram**: [@infinityfit](https://www.instagram.com/infinityfit)
-- **Twitter**: [@infinityfit](https://twitter.com/infinityfit)
-- **Email**: [support@infinityfit.com](mailto:support@infinityfit.com)
+- **Email** : 이영은 [support@infinityfit.com](mailto:lyeongeun1010@naver.com)
+- **Email** : 김은우 [support@infinityfit.com](mailto:dmsdn01@naver.com)
 - **Website**: [www.infinityfit.com](https://www.infinityfit.com)
 
 **InfinityFit**은 **건강 목표 달성**을 위한 **최적의 동반자**입니다. 여러분의 건강 여정을 함께하며 **지속적인 변화**를 이끌어냅니다! 💪🌱
