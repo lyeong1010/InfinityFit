@@ -100,6 +100,14 @@ From fitness to wellness, we provide personalized tools and resources to make it
 
 ---
 
+## 📚 Documentation
+
+Explore our detailed documentation for step-by-step guides and insights:
+
+- [InfinityFit Documentation on Read the Docs](https://infinityfit.readthedocs.io/en/latest/getting_started.html)
+
+---
+
 ## 🚀 Getting Started
 
 1. **Sign up** to create your personal account.
