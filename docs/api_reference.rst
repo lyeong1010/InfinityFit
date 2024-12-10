@@ -1,72 +1,56 @@
-API Reference
-=============
+======================
+InfinityFit API Reference
+======================
 
-This document provides an overview of the available APIs for the InfinityFit web application.
+Welcome to the API Reference for **InfinityFit**, your all-in-one health management platform.
 
----
+This document provides detailed information about the APIs available in InfinityFit for developers and integrators.
 
-User Registration API
 ----------------------
 
-### Endpoint:
+API Overview
+============
 
-### Description:
-This API is used for user registration.
+1. **Diet Plan Calculator API**
+   - **Description**: Generate a personalized diet plan based on user input.
+   - **Endpoint**: `/api/diet-plan`
+   - **Method**: POST
+   - **Parameters**:
+     - `current_weight` (float, required): The user's current weight in kilograms.
+     - `goal_weight` (float, required): The user's target weight in kilograms.
+     - `age` (integer, required): The user's age in years.
+     - `gender` (string, required): Gender of the user (`male` or `female`).
+     - `duration` (integer, required): Duration of the diet plan in days.
+   - **Response**: 
+     - JSON object containing recommended daily calorie intake and meal suggestions.
 
-**Request Example:**
-.. code-block:: json
+2. **Food Calorie Dictionary API**
+   - **Description**: Fetch calorie information for specific foods.
+   - **Endpoint**: `/api/food-calories`
+   - **Method**: GET
+   - **Parameters**:
+     - `query` (string, required): Name of the food item.
+   - **Response**: 
+     - JSON object with food details and calorie count.
 
-    {
-        "username": "lyeong1010",
-        "email": "sohee2125@gmail.com",
-        "password": "password123"
-    }
+3. **Health Management Diary API**
+   - **Description**: Save and retrieve daily health records.
+   - **Endpoint**: `/api/health-diary`
+   - **Method**: POST/GET
+   - **Parameters**:
+     - For POST: `entry_date`, `diet_details`, `workout_details`, `notes`.
+     - For GET: `entry_date`.
+   - **Response**: 
+     - JSON object with saved or retrieved health data.
 
-{
-    "status": "success",
-    "message": "User registered successfully.",
-    "data": {
-        "user_id": 12345,
-        "username": "lyeong1010",
-        "email": "sohee2125@gmail.com"
-    }
-}
+4. **Body Weight Trends API**
+   - **Description**: Fetch and visualize weight trends.
+   - **Endpoint**: `/api/weight-trends`
+   - **Method**: GET
+   - **Parameters**:
+     - `start_date` and `end_date` (optional): Date range for the trend data.
+   - **Response**:
+     - JSON object containing weight data points and trend analysis.
 
-POST /api/login
-{
-    "username": "lyeong1010",
-    "password": "password123"
-}
-{
-    "status": "success",
-    "message": "Login successful.",
-    "data": {
-        "token": "abcd1234tokenvalue",
-        "user_id": 12345,
-        "username": "lyeong1010"
-    }
-}
+----------------------
 
-GET /api/user/profile
-{
-    "Authorization": "Bearer abcd1234tokenvalue"
-}
-{
-    "status": "success",
-    "message": "User profile retrieved successfully.",
-    "data": {
-        "user_id": 12345,
-        "username": "lyeong1010",
-        "email": "sohee2125@gmail.com",
-        "fitness_level": "Intermediate",
-        "goal": "Weight Loss"
-    }
-}
-POST /api/logout
-{
-    "Authorization": "Bearer abcd1234tokenvalue"
-}
-{
-    "status": "success",
-    "message": "Logged out successfully."
-}
