@@ -38,7 +38,7 @@ Technical Questions
      - **Email**: support@infinityfit.com(mailto:dmsdn01@naver.com)
      - **Email**: support@infinityfit.com(mailto:lyeong1010@naver.com)
 
----
+----------------------
 
 Reporting Issues
 ================
