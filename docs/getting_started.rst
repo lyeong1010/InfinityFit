@@ -1,64 +1,44 @@
+======================
 Getting Started with InfinityFit
-================================
+======================
 
-Welcome to InfinityFit, a health management platform designed to help users achieve their fitness and wellness goals with ease and professionalism. This guide will help you set up and run the project.
+Welcome to **InfinityFit**! Follow these steps to set up and start using the platform.
 
-Prerequisites
--------------
-Before starting, ensure you have the following installed:
-- **Python 3.8 or higher**
-- **pip** (Python package manager)
-- **Git** (for cloning the repository)
+----------------------
 
-Installation
-------------
-Follow these steps to install InfinityFit:
+Step 1: Install Prerequisites
+=============================
 
-1. Clone the repository:
+Ensure you have the following installed:
+1. [Node.js](https://nodejs.org)
+2. [Python 3.8+](https://www.python.org/)
+3. A database system (MySQL or MongoDB).
 
+Step 2: Clone the Repository
+============================
 
-2. Navigate to the project directory:
-
-
-3. Create a virtual environment (recommended):
+Clone the InfinityFit repository from GitHub:
+  - git clone https://github.com/lyeong1010/InfinityFit.git cd InfinityFit
 
 
-4. Install the required dependencies:
+Step 3: Install Dependencies
+============================
+
+Install the required dependencies:
+  - npm install pip install -r requirements.txt
 
 
-Configuration
--------------
-To configure InfinityFit, follow these steps:
+Step 4: Configure Environment
+=============================
 
-1. **Edit the configuration file**:
-- Open the `config.yaml` file in the project directory.
-- Update the database URL, API keys, and other necessary settings.
+Create a `.env` file and add the following configuration:
 
-2. **Set environment variables (optional)**:
-- Create a `.env` file in the root directory.
-- Add the following variables:
-  ```
-  DATABASE_URL=your_database_url
-  SECRET_KEY=your_secret_key
-  ```
 
-Running the Project
--------------------
-To start the application, use the following command:
+Step 5: Run the Application
+===========================
 
-By default, the application will be available at `http://localhost:5000`.
+Start the development server:
 
-Testing the Application
------------------------
-After starting the application, visit these URLs in your browser:
-- **Home Page:** `http://localhost:5000/`
-- **Login Page:** `http://localhost:5000/login`
 
-Troubleshooting
----------------
-If you encounter issues:
-- Ensure all prerequisites are installed.
-- Check error messages in the terminal and follow the suggestions.
-- Refer to the FAQ section in the documentation.
 
 
