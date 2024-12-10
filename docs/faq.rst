@@ -40,12 +40,5 @@ Technical Questions
 
 ----------------------
 
-Reporting Issues
-================
-
-If you encounter a bug or have suggestions, please open an issue on GitHub:
-👉 [InfinityFit GitHub Issues](https://github.com/lyeong1010/InfinityFit/issues)
-
-----------------------
 
 
